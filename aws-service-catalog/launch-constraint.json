@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LaunchConstraintSC",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:SetStackPolicy",
+                "s3:GetObject",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:UpdateStack",
+                "servicecatalog:*",
+                "ec2:*",
+                "cloudformation:ValidateTemplate",
+                "cloudformation:GetTemplateSummary",
+                "cloudformation:DescribeStacks"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

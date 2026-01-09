@@ -1,0 +1,21 @@
+{
+ "Version": "2012-10-17",
+ "Id": "AllowS3Publish",
+ "Statement": [
+  {
+   "Sid": "S3EventNotification",
+   "Effect": "Allow",
+   "Principal": {
+     "Service": "s3.amazonaws.com"  
+   },
+   "Action": [
+    "SNS:Publish"
+   ],
+   "Resource": "arn:aws:sns:Region:account-id:topic-name",
+   "Condition": {
+      "ArnLike": { "aws:SourceArn": "arn:aws:s3:::awsexamplebucket1" },
+      "StringEquals": { "aws:SourceAccount": "bucket-owner-account-id" }
+   }
+  }
+ ]
+}

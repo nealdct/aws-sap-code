@@ -1,0 +1,42 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+          "Action": "s3:GetBucketAcl",
+          "Effect": "Allow",
+          "Resource": "arn:aws:s3:::BUCKET_NAME",
+          "Principal": { "Service": "logs.us-east-1.amazonaws.com" },
+          "Condition": {
+            "StringEquals": {
+                "aws:SourceAccount": [
+                    "ACCOUNT_ID"
+                ]
+            },
+            "ArnLike": {
+                    "aws:SourceArn": [
+                        "arn:aws:logs:us-east-1:ACCOUNT_ID:log-group:*"
+                     ]
+            }
+          }
+      },
+      {
+          "Action": "s3:PutObject" ,
+          "Effect": "Allow",
+          "Resource": "arn:aws:s3:::BUCKET_NAME/*",
+          "Principal": { "Service": "logs.us-east-1.amazonaws.com" },
+          "Condition": {
+            "StringEquals": {
+                "s3:x-amz-acl": "bucket-owner-full-control",
+                "aws:SourceAccount": [
+                    "ACCOUNT_ID"
+                ]
+            },
+            "ArnLike": {
+                    "aws:SourceArn": [
+                        "arn:aws:logs:us-east-1:ACCOUNT_ID:log-group:*"
+                    ]
+            }
+          }
+      }
+    ]
+}

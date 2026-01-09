@@ -1,0 +1,9 @@
+{
+  "ProductId": "cbc91622-6724-11eb-ae93-0242ac130002",
+  "ProductName": "Jacket",
+  "Category": "Winter Clothes",
+  "PricePerUnit": "175",
+  "CustomerId": "be44af0a-74f9-438e-a3ac-e3e21d84259f",
+  "CustomerName": "John Doe",
+  "TimeOfVisit": "2023-02-02T19:30:52.479Z" 
+}
